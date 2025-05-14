@@ -1,0 +1,353 @@
+/* ========== Global Styles ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========== Navbar ========== */
+.navbar {
+  background: #16a34a;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.hero-logo {
+  width: 180px; /* Ukuran logonya boleh diatur */
+  height: auto;
+}
+
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-box input {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1rem;
+}
+
+.search-box button {
+  background: white;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.menu-toggle {
+  font-size: 2rem;
+  display: none;
+  cursor: pointer;
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero-logo {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+}
+
+.hero h2 {
+  font-size: 1.8rem;
+  color: #16a34a;
+  margin: 0.5rem 0;
+}
+
+.hero p {
+  font-size: 1rem;
+}
+
+/* ========== About Section ========== */
+.about {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.grid div {
+  background: #f0fdf4;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+/* ========== Buttons ========== */
+.btn, .learn-btn {
+  background: #16a34a;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.btn:hover, .learn-btn:hover {
+  background: #0e7a35;
+}
+
+/* ========== Kepengurusan Section ========== */
+.kepengurusan {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info div {
+  background: #f0fdf4;
+  padding: 1.5rem;
+  border-radius: 15px;
+  font-size: 1.2rem;
+}
+
+/* ========== Berita Section ========== */
+.berita {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.card {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body h3 {
+  font-size: 1.2rem;
+  color: #16a34a;
+  margin-bottom: 0.5rem;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+}
+
+/* ========== Pimpinan Section ========== */
+.pimpinan {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.leaders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.leader {
+  text-align: center;
+  width: 180px;
+}
+
+.leader img {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.leader h3 {
+  font-size: 1.1rem;
+}
+
+.leader p {
+  font-size: 0.9rem;
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: #16a34a;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.socials {
+  margin-bottom: 1rem;
+}
+
+.socials a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1024px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+  .about h2, .berita h2, .pimpinan h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #16a34a;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .search-box {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.3rem;
+  }
+
+  .about p, .card-body p, .leader p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero h2 {
+    font-size: 1.1rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .about p, .card-body p, .leader p {
+    font-size: 0.8rem;
+  }
+
+  .info {
+    flex-direction: column;
+  }
+
+  .leaders {
+    flex-direction: column;
+    align-items: center;
+  }
+}

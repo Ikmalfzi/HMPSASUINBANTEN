@@ -1,0 +1,462 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   HMPS Asuransi Syari'ah
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Custom font sizes for exact match with larger sizes */
+    .text-10px {
+      font-size: 10px;
+    }
+    .text-12px {
+      font-size: 12px;
+    }
+    .text-14px {
+      font-size: 14px;
+    }
+    .text-16px {
+      font-size: 16px;
+    }
+    .text-18px {
+      font-size: 18px;
+    }
+  </style>
+ </head>
+ 
+   <!-- Navbar -->
+  <nav class="bg-[#2ecc71] flex flex-wrap items-center justify-between px-4 py-3">
+   <div class="flex flex-col">
+    <h1 class="text-black font-bold text-sm sm:text-base md:text-lg leading-tight">
+     HMPS ASURANSI SYARI'AH
+    </h1>
+    <p class="text-black text-[8px] sm:text-xs md:text-sm font-semibold leading-tight mt-0.5">
+     UIN SULTAN MAULANA HASANUDDIN BANTEN
+    </p>
+   </div>
+   <!-- Desktop nav links and Struktur dropdown -->
+   <ul class="hidden sm:flex items-center space-x-2 text-black text-xs sm:text-sm md:text-base font-semibold">
+    <li>
+     <a class="hover:underline" href="home.html">
+      HOME
+     </a>
+    </li>
+    <li>
+     <a class="hover:underline" href="about.html">
+      ABOUT
+     </a>
+    </li>
+    <li class="relative group">
+     <button aria-expanded="false" aria-haspopup="true" class="bg-white text-black font-bold rounded px-2 py-0.5 text-[10px] sm:text-xs md:text-sm flex items-center space-x-1 border border-black hover:bg-[#10b981] hover:text-white transition" id="strukturBtn" onclick="toggleDropdown()" type="button">
+      <span>
+       STRUKTUR
+      </span>
+      <i class="fas fa-caret-down text-xs">
+      </i>
+     </button>
+     <ul aria-label="Struktur submenu" class="absolute right-0 mt-1 w-28 bg-white border border-black rounded shadow-md text-black text-[10px] sm:text-xs md:text-sm font-semibold hidden z-50" id="strukturDropdown" role="menu">
+             <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Struktur.html">
+        Struktur
+       </a>
+      </li>
+      <li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="bph.html">
+        BADAN PENGURUS HARIAN
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Internal.html">
+        INTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekternal.html">
+        EKSTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Kominfo.html">
+        KOMINFO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="pao.html">
+        PAO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekraf.html">
+        EKRAF
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="PP.html">
+        PP
+       </a>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <a class="hover:underline" href="berita.html">
+      BERITA
+     </a>
+    </li>
+    <li>
+     <a class="hover:underline" href="kontak.html">
+      KONTAK
+     </a>
+    </li>
+   </ul>
+   <!-- Mobile menu button -->
+   <button aria-label="Toggle menu" class="sm:hidden text-black text-xl focus:outline-none" id="mobileMenuBtn" onclick="toggleMobileMenu()" type="button">
+    <i class="fas fa-bars">
+    </i>
+   </button>
+  </nav>
+  <!-- Mobile menu -->
+  <div class="hidden bg-[#2ecc71] px-4 pb-4 sm:hidden" id="mobileMenu">
+   <ul class="flex flex-col space-y-2 text-black text-sm font-semibold">
+    <li>
+
+    <li>
+     <a class="block py-1 hover:underline" href="home.html">
+      HOME
+     </a>
+    </li>
+    <li>
+     <a class="block py-1 hover:underline" href="about.html">
+      ABOUT
+     </a>
+    </li>
+    
+         <button aria-expanded="false" aria-haspopup="true" class="w-full text-left bg-white text-black font-bold rounded px-2 py-1 flex items-center justify-between border border-black hover:bg-[#10b981] hover:text-white transition" id="mobileStrukturBtn" onclick="toggleMobileDropdown()" type="button">
+      <span>
+       STRUKTUR
+      </span>
+      <i class="fas fa-caret-down">
+      </i>
+     </button>
+     <ul aria-label="Struktur submenu mobile" class="hidden mt-1 bg-white border border-black rounded shadow-md text-black font-semibold" id="mobileStrukturDropdown" role="menu">
+      <li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Struktur.html">
+        Struktur
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="bph.html">
+        BADAN PENGURUS HARIAN
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Internal.html">
+        INTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekternal.html">
+        EKSTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Kominfo.html">
+        KOMINFO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="pao.html">
+        PAO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekraf.html">
+        EKRAF
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="PP.html">
+        PP
+       </a>
+      </li>
+     </ul>
+    </li>
+    
+    <li>
+     <a class="block py-1 hover:underline" href="Berita.html">
+      BERITA
+     </a>
+    </li>
+    <li>
+     <a class="block py-1 hover:underline" href="Kontak.html">
+      KONTAK
+     </a>
+    </li>
+   </ul>
+  </div>
+ 
+ <body class="bg-white font-sans">
+  <div class="max-w-3xl mx-auto p-6 space-y-8">
+   <!-- Logo -->
+   <div class="flex justify-center mb-4">
+    <img alt="Logo of HMPS Asuransi Syari'ah with green star shape and book icon" class="w-32 h-32 object-contain" height="128" src="logo.png" width="128"/>
+   </div>
+   <!-- Header Text -->
+   <div class="text-center space-y-1">
+    <p class="font-bold text-2xl leading-none">
+     Hi!,Visitor HMPS
+    </p>
+    <p class="text-4xl font-light leading-none">
+     Asuransi Syari'ah
+    </p>
+    <p class="text-lg font-normal leading-none">
+     Fakultas Ekonomi dan bisnis Islam
+    </p>
+    <p class="text-lg font-bold mt-2">
+     UIN SMH BANTEN
+    </p>
+   </div>
+   <!-- Description and 4 points -->
+   <div class="flex flex-col md:flex-row md:space-x-16 md:mb-12 mb-8">
+    <div class="md:w-1/2 space-y-4">
+     <h2 class="font-bold text-2xl">
+      HMPS Asuransi Syariah
+     </h2>
+     <p class="text-lg font-normal leading-relaxed">
+      Himpunan Mahasiswa Program Studi Asuransi Syariah (HMPS AS ) adalah salah satu HMJ (Himpunan Mahasiswa Jurusan) yang ada di Fakultas Ekonomi dan Bisnis Islam Universitas Islam Negeri Sultan Maulana Hasanuddin Banten yang berfokus pada kegiatan kemahasiswaan yang membangun dan memajukan fakultas dan jurusan.
+     </p>
+     <button class="bg-green-500 text-black text-lg font-semibold rounded-full px-8 py-2 hover:bg-green-600 transition"  type="button">
+            <a class="block py-1 hover:underline" href="about.html">
+       
+      Selengkapnya
+     </button>
+    </div>
+    <div class="md:w-1/2 grid grid-cols-2 gap-y-6 gap-x-8 mt-8 md:mt-0 text-sm font-semibold">
+     <div class="text-left leading-snug">
+      <p>
+       Membangun Jaringan
+      </p>
+      <p>
+       dan Kolaborasi
+      </p>
+     </div>
+     <div class="text-right leading-snug">
+      <p>
+       Pengembangan
+      </p>
+      <p>
+       Profesionalisme
+      </p>
+     </div>
+     <div class="text-left leading-snug">
+      <p>
+       Berbagi Pengetahuan
+      </p>
+      <p>
+       dan Pengalaman
+      </p>
+     </div>
+     <div class="text-right leading-snug">
+      <p>
+       Mengembangkan
+      </p>
+      <p>
+       Proyek Bersama
+      </p>
+     </div>
+    </div>
+   </div>
+   <!-- Kepengurusan heading -->
+   <div class="text-center space-y-1 mb-8 md:mb-12">
+    <p class="font-bold text-2xl">
+     Anggota Kepengurusan
+    </p>
+    <p class="font-bold text-2xl">
+     HMPS Asuransi Syariah
+    </p>
+   </div>
+   <!-- Icons row -->
+   <div class="flex justify-around mb-8 space-x-12">
+    <div class="flex flex-col items-center text-lg font-normal space-y-1">
+     <i class="far fa-object-group text-4xl">
+     </i>
+     <span>
+      Total Devisi
+     </span>
+    </div>
+    <div class="flex flex-col items-center text-lg font-normal space-y-1">
+     <i class="fas fa-users text-5xl">
+     </i>
+     <span>
+      Total Kepengurusan Aktif
+     </span>
+    </div>
+   </div>
+   <!-- News heading -->
+   <div class="text-center mb-6 font-semibold text-2xl">
+    Temukan berita baru di HMPS Asuransi Syariah
+   </div>
+   <!-- News cards -->
+   <div class="flex space-x-6 overflow-x-auto pb-6 mb-8">
+    <!-- Card 1 -->
+    <div class="min-w-[140px] rounded-lg bg-[#2f3a5a] p-3 text-white shadow-md">
+     <div class="relative rounded-md overflow-hidden mb-2">
+      <img alt="Breaking news card with OJK logo and Indonesian flag on gray background" class="w-full h-24 object-cover rounded-md" height="96" src="berita.png" width="140"/>
+      <div class="absolute top-2 right-2 bg-[#4a5a8a] text-xs px-2 rounded">
+       BREAKING NEWS
+      </div>
+     </div>
+     <p class="text-xs font-light leading-tight mb-2">
+      4) perusahaan asuransi dengan direksi OJK
+     </p>
+     <button class="text-xs font-semibold bg-[#3a4a7a] rounded px-3 py-1 hover:bg-[#2a3a6a] transition">
+      Lihat Selengkapnya
+     </button>
+    </div>
+    <!-- Card 2 -->
+    <div class="min-w-[140px] rounded-lg bg-[#2f3a5a] p-3 text-white shadow-md">
+     <div class="relative rounded-md overflow-hidden mb-2">
+      <img alt="Breaking news card with OJK logo and Indonesian flag on gray background" class="w-full h-24 object-cover rounded-md" height="96" src="berita.png" width="140"/>
+      <div class="absolute top-2 right-2 bg-[#4a5a8a] text-xs px-2 rounded">
+       BREAKING NEWS
+      </div>
+     </div>
+     <p class="text-xs font-light leading-tight mb-2">
+      4) perusahaan asuransi dengan direksi OJK
+     </p>
+     <button class="text-xs font-semibold bg-[#3a4a7a] rounded px-3 py-1 hover:bg-[#2a3a6a] transition">
+      Lihat Selengkapnya
+     </button>
+    </div>
+    <!-- Card 3 -->
+    <div class="min-w-[140px] rounded-lg bg-[#2f3a5a] p-3 text-white shadow-md">
+     <div class="relative rounded-md overflow-hidden mb-2">
+      <img alt="Breaking news card with OJK logo and Indonesian flag on gray background" class="w-full h-24 object-cover rounded-md" height="96" src="berita.png" width="140"/>
+      <div class="absolute top-2 right-2 bg-[#4a5a8a] text-xs px-2 rounded">
+       BREAKING NEWS
+      </div>
+     </div>
+     <p class="text-xs font-light leading-tight mb-2">
+      4) perusahaan asuransi dengan direksi OJK
+     </p>
+     <button class="text-xs font-semibold bg-[#3a4a7a] rounded px-3 py-1 hover:bg-[#2a3a6a] transition">
+      Lihat Selengkapnya
+     </button>
+    </div>
+   </div>
+   <!-- Pimpinan heading --> <div class="text-center mb-10 font-bold text-3xl">
+    Pimpinan Himpunan Mahasiswa Program Studi Asuransi Syariah
+   </div>
+   <!-- Pimpinan cards -->
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10 text-center text-base font-normal">
+    <!-- Card 1 -->
+    <div>
+     <img alt="Profile image of ikmalfzi, Ketua HMPS Asuransi Syariah 2025-2029, young man with glasses and black jacket" class="mx-auto rounded" height="160" src="suci.jpg" width="160"/>
+     <p class="mt-4 font-semibold text-xl">
+      ikmalfzi
+     </p>
+     <p>
+      Ketua HMPS Asuransi Syariah 2025-2029
+     </p>
+    </div>
+    <!-- Card 2 -->
+    <div>
+     <img alt="Profile image of nama, Sekertaris HMPS Asuransi Syariah 2025-2029, young man with glasses and black jacket" class="mx-auto rounded" height="160" src="suci.jpg" width="160"/>
+     <p class="mt-4 font-semibold text-xl">
+      nama
+     </p>
+     <p>
+      Sekertaris HMPS Asuransi Syariah 2025-2029
+     </p>
+    </div>
+    <!-- Card 3 -->
+    <div>
+     <img alt="Profile image of Nama, Bendahara HMPS Asuransi Syariah 2025-2029, young man with glasses and black jacket" class="mx-auto rounded" height="160" src="suci.jpg" width="160"/>
+     <p class="mt-4 font-semibold text-xl">
+      Nama
+     </p>
+     <p>
+      Bendahara HMPS Asuransi Syariah 2025-2029
+     </p>
+    </div>
+   </div>
+  </div>
+  
+  <!-- Footer with social icons -->
+  <footer class="bg-green-600 py-6 mt-8 md:mt-12">
+   <div class="max-w-3xl mx-auto flex justify-center space-x-12 mb-3">
+    <a aria-label="Instagram" class="text-white text-3xl bg-gray-800 rounded-lg p-3 flex items-center justify-center w-14 h-14" href="https://www.instagram.com/hmps_asuransifebi?igsh=am5mMjY0NDZudnRz">
+     <i class="fab fa-instagram">
+     </i>
+    </a>
+    <a aria-label="TikTok" class="text-white text-3xl bg-gray-800 rounded-lg p-3 flex items-center justify-center w-14 h-14" href="https://www.tiktok.com/@hmps_asuransifebi?_t=ZS-8wLrdIW6C8Y&_r=1">
+     <i class="fab fa-tiktok">
+     </i>
+    </a>
+    <a aria-label="YouTube" class="text-white text-3xl bg-gray-800 rounded-lg p-3 flex items-center justify-center w-14 h-14" href="https://youtube.com/@officialhmpsasuransisyariah?si=V9Ulk33EGIgt3pwi">
+     <i class="fab fa-youtube">
+     </i>
+    </a>
+   </div>
+   <p class="text-center text-black text-lg font-normal">
+    ©ikmalfzi_
+   </p>
+  </footer>
+    <script>
+   function toggleDropdown() {
+    const dropdown = document.getElementById("strukturDropdown");
+    const btn = document.getElementById("strukturBtn");
+    const isHidden = dropdown.classList.contains("hidden");
+    if (isHidden) {
+      dropdown.classList.remove("hidden");
+      btn.setAttribute("aria-expanded", "true");
+    } else {
+      dropdown.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  }
+  // Close dropdown if clicked outside
+  window.addEventListener("click", function (e) {
+    const dropdown = document.getElementById("strukturDropdown");
+    const btn = document.getElementById("strukturBtn");
+    if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Mobile menu toggle
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobileMenu");
+    const btn = document.getElementById("mobileMenuBtn");
+    if (menu.classList.contains("hidden")) {
+      menu.classList.remove("hidden");
+      btn.innerHTML = '<i class="fas fa-times"></i>';
+    } else {
+      menu.classList.add("hidden");
+      btn.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+  }
+
+  // Mobile Struktur submenu toggle
+  function toggleMobileDropdown() {
+    const dropdown = document.getElementById("mobileStrukturDropdown");
+    const btn = document.getElementById("mobileStrukturBtn");
+    if (dropdown.classList.contains("hidden")) {
+      dropdown.classList.remove("hidden");
+      btn.setAttribute("aria-expanded", "true");
+    } else {
+      dropdown.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  }
+  </script>
+  
+ </body>
+</html>
+

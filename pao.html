@@ -1,0 +1,344 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   bidang pao
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Custom scrollbar for dropdown */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #10b981;
+    border-radius: 10px;
+  }
+  </style>
+ </head>
+ <body class="bg-[#fff0f2] font-sans">
+   <!-- Navbar -->
+  <nav class="bg-[#2ecc71] flex flex-wrap items-center justify-between px-4 py-3">
+   <div class="flex flex-col">
+    <h1 class="text-black font-bold text-sm sm:text-base md:text-lg leading-tight">
+     HMPS ASURANSI SYARI'AH
+    </h1>
+    <p class="text-black text-[8px] sm:text-xs md:text-sm font-semibold leading-tight mt-0.5">
+     UIN SULTAN MAULANA HASANUDDIN BANTEN
+    </p>
+   </div>
+   <!-- Desktop nav links and Struktur dropdown -->
+   <ul class="hidden sm:flex items-center space-x-2 text-black text-xs sm:text-sm md:text-base font-semibold">
+    <li>
+     <a class="hover:underline" href="home.html">
+      HOME
+     </a>
+    </li>
+    <li>
+     <a class="hover:underline" href="about.html">
+      ABOUT
+     </a>
+    </li>
+    <li class="relative group">
+     <button aria-expanded="false" aria-haspopup="true" class="bg-white text-black font-bold rounded px-2 py-0.5 text-[10px] sm:text-xs md:text-sm flex items-center space-x-1 border border-black hover:bg-[#10b981] hover:text-white transition" id="strukturBtn" onclick="toggleDropdown()" type="button">
+      <span>
+       STRUKTUR
+      </span>
+      <i class="fas fa-caret-down text-xs">
+      </i>
+     </button>
+     <ul aria-label="Struktur submenu" class="absolute right-0 mt-1 w-28 bg-white border border-black rounded shadow-md text-black text-[10px] sm:text-xs md:text-sm font-semibold hidden z-50" id="strukturDropdown" role="menu">
+             <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Struktur.html">
+        Struktur
+       </a>
+      </li>
+      <li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="bph.html">
+        BADAN PENGURUS HARIAN
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Internal.html">
+        INTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekternal.html">
+        EKSTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Kominfo.html">
+        KOMINFO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="pao.html">
+        PAO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekraf.html">
+        EKRAF
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="PP.html">
+        PP
+       </a>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <a class="hover:underline" href="berita.html">
+      BERITA
+     </a>
+    </li>
+    <li>
+     <a class="hover:underline" href="kontak.html">
+      KONTAK
+     </a>
+    </li>
+   </ul>
+
+   <!-- Mobile menu button -->
+   <button aria-label="Toggle menu" class="sm:hidden text-black text-xl focus:outline-none" id="mobileMenuBtn" onclick="toggleMobileMenu()" type="button">
+    <i class="fas fa-bars">
+    </i>
+   </button>
+  </nav>
+  <!-- Mobile menu -->
+  <div class="hidden bg-[#2ecc71] px-4 pb-4 sm:hidden" id="mobileMenu">
+   <ul class="flex flex-col space-y-2 text-black text-sm font-semibold">
+    <li>
+
+    <li>
+     <a class="block py-1 hover:underline" href="home.html">
+      HOME
+     </a>
+    </li>
+    <li>
+     <a class="block py-1 hover:underline" href="about.html">
+      ABOUT
+     </a>
+    </li>
+    
+         <button aria-expanded="false" aria-haspopup="true" class="w-full text-left bg-white text-black font-bold rounded px-2 py-1 flex items-center justify-between border border-black hover:bg-[#10b981] hover:text-white transition" id="mobileStrukturBtn" onclick="toggleMobileDropdown()" type="button">
+      <span>
+       STRUKTUR
+      </span>
+      <i class="fas fa-caret-down">
+      </i>
+     </button>
+     <ul aria-label="Struktur submenu mobile" class="hidden mt-1 bg-white border border-black rounded shadow-md text-black font-semibold" id="mobileStrukturDropdown" role="menu">
+      <li>      <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Struktur.html">
+        Struktur
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="bph.html">
+        BADAN PENGURUS HARIAN
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Internal.html">
+        INTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekternal.html">
+        EKSTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Kominfo.html">
+        KOMINFO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="pao.html">
+        PAO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekraf.html">
+        EKRAF
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="PP.html">
+        PP
+       </a>
+      </li>
+     </ul>
+    </li>
+    
+    <li>
+     <a class="block py-1 hover:underline" href="Berita.html">
+      BERITA
+     </a>
+    </li>
+    <li>
+     <a class="block py-1 hover:underline" href="Kontak.html">
+      KONTAK
+     </a>
+    </li>
+   </ul>
+  </div>
+ <body class="bg-white">
+  <header class="relative w-full">
+     <section class="relative w-full h-[200px] flex items-center justify-center bg-white">
+   <img alt="Group of students posing outdoors wearing white clothes" class="absolute inset-0 w-full h-full object-cover opacity-30" height="200" loading="lazy" src="pao.png" width="1200"/>
+   
+   <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4" style="top: 40px">
+    <h1 class="text-black font-extrabold text-xl sm:text-2xl md:text-3xl leading-tight">
+     BIDANG
+    </h1>
+    <h2 class="text-black font-extrabold text-xl sm:text-2xl md:text-3xl leading-tight">
+     PAO
+    </h2>
+   </div>
+  </header>
+  <main class="bg-[#fff0f1] px-4 py-8 sm:py-12 md:py-16 max-w-7xl mx-auto">
+   <section class="max-w-4xl mx-auto">
+    <h3 class="text-center font-bold text-lg sm:text-xl mb-4">
+     Bidang 
+    </h3>
+    <h4 class="text-center font-extrabold text-2xl sm:text-3xl mb-4">
+     "Pemberdayaan Aparatur Organisasi"
+    </h4>
+    <p class="text-center max-w-3xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+     Himpunan Mahasiswa Program Studi Asuransi Syariah (HMPS AS ) adalah salah satu Himpunan Mahasiswa Jurusan yang ada di Fakultas Ekonomi dan Bisnis Islam Universitas Islam Negeri Sultan Maulana Hasanuddin Banten yang berfokus pada kegiatan kemahasiswaan yang membangun dan memajukan fakultas dan jurusan.
+    </p>
+   <section class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-8">
+    <article class="text-center">
+     <img alt="Young man with black hair and glasses wearing gray jacket and black turtleneck looking to side with green trees background" class="mx-auto mb-2" height="150" src="suci.jpg" width="150"/>
+     <p class="font-bold text-sm mb-1">
+      Afrida Aulia Nur Ifani
+     </p>
+     <p class="text-sm">
+      Ketua Bidang PAO
+     </p>
+    </article>
+    <article class="text-center">
+     <img alt="Young man with black hair and glasses wearing gray jacket and black turtleneck looking to side with green trees background" class="mx-auto mb-2" height="150" src="suci.jpg" width="150"/>
+     <p class="font-bold text-sm mb-1">
+     Mila Nur Syahputri
+     </p>
+     <p class="text-sm">
+      Sekertaris Bidang PAO
+     </p>
+    </article>
+    <article class="text-center">
+     <img alt="Young man with black hair and glasses wearing gray jacket and black turtleneck looking to side with green trees background" class="mx-auto mb-2" height="150" src="suci.jpg" width="150"/>
+     <p class="font-bold text-sm mb-1">
+      Ichan Kamil
+     </p>
+     <p class="text-sm">
+      Anggota Bidang PAO
+     </p>
+    </article>
+    <article class="text-center">
+     <img alt="Young man with black hair and glasses wearing gray jacket and black turtleneck looking to side with green trees background" class="mx-auto mb-2" height="150" src="suci.jpg" width="150"/>
+     <p class="font-bold text-sm mb-1">
+      Fachmi Tsihab
+     </p>
+     <p class="text-sm">
+      Anggota Bidang PAO
+     </p>
+    </article>
+    <article class="text-center">
+     <img alt="Young man with black hair and glasses wearing gray jacket and black turtleneck looking to side with green trees background" class="mx-auto mb-2" height="150" src="suci.jpg" width="150"/>
+     <p class="font-bold text-sm mb-1">
+      Wanda Hamidah
+     </p>
+     <p class="text-sm">
+      Anggota Bidang PAO
+     </p>
+    </article>
+    <article class="text-center">
+     <img alt="Young man with black hair and glasses wearing gray jacket and black turtleneck looking to side with green trees background" class="mx-auto mb-2" height="150" src="suci.jpg" width="150"/>
+     <p class="font-bold text-sm mb-1">
+      Imam Bima Firmansyah
+     </p>
+     <p class="text-sm">
+      Anggota Bidang PAO
+     </p>
+    </article>
+   </section>
+  </main>
+  <!-- Footer with social icons -->
+  <footer class="bg-green-600 py-6 mt-8 md:mt-12">
+   <div class="max-w-3xl mx-auto flex justify-center space-x-12 mb-3">
+    <a aria-label="Instagram" class="text-white text-3xl bg-gray-800 rounded-lg p-3 flex items-center justify-center w-14 h-14" href="https://www.instagram.com/hmps_asuransifebi?igsh=am5mMjY0NDZudnRz">
+     <i class="fab fa-instagram">
+     </i>
+    </a>
+    <a aria-label="TikTok" class="text-white text-3xl bg-gray-800 rounded-lg p-3 flex items-center justify-center w-14 h-14" href="https://www.tiktok.com/@hmps_asuransifebi?_t=ZS-8wLrdIW6C8Y&_r=1">
+     <i class="fab fa-tiktok">
+     </i>
+    </a>
+    <a aria-label="YouTube" class="text-white text-3xl bg-gray-800 rounded-lg p-3 flex items-center justify-center w-14 h-14" href="https://youtube.com/@officialhmpsasuransisyariah?si=V9Ulk33EGIgt3pwi">
+     <i class="fab fa-youtube">
+     </i>
+    </a>
+   </div>
+   <p class="text-center text-black text-lg font-normal">
+    ©ikmalfzi_
+   </p>
+  </footer>
+    <script>
+   function toggleDropdown() {
+    const dropdown = document.getElementById("strukturDropdown");
+    const btn = document.getElementById("strukturBtn");
+    const isHidden = dropdown.classList.contains("hidden");
+    if (isHidden) {
+      dropdown.classList.remove("hidden");
+      btn.setAttribute("aria-expanded", "true");
+    } else {
+      dropdown.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  }
+  // Close dropdown if clicked outside
+  window.addEventListener("click", function (e) {
+    const dropdown = document.getElementById("strukturDropdown");
+    const btn = document.getElementById("strukturBtn");
+    if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Mobile menu toggle
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobileMenu");
+    const btn = document.getElementById("mobileMenuBtn");
+    if (menu.classList.contains("hidden")) {
+      menu.classList.remove("hidden");
+      btn.innerHTML = '<i class="fas fa-times"></i>';
+    } else {
+      menu.classList.add("hidden");
+      btn.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+  }
+
+  // Mobile Struktur submenu toggle
+  function toggleMobileDropdown() {
+    const dropdown = document.getElementById("mobileStrukturDropdown");
+    const btn = document.getElementById("mobileStrukturBtn");
+    if (dropdown.classList.contains("hidden")) {
+      dropdown.classList.remove("hidden");
+      btn.setAttribute("aria-expanded", "true");
+    } else {
+      dropdown.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  }
+  </script>
+  
+ </body>
+</html>
+

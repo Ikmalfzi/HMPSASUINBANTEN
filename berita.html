@@ -1,0 +1,509 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Berita Otomotif Sederhana dengan Upload Gambar</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="styles.css"rel="stylesheet" />
+</head>
+<body class="bg-gray-50 font-sans">
+  <!-- Header -->
+  <html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   bidang pp
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Custom scrollbar for dropdown */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #10b981;
+    border-radius: 10px;
+  }
+  </style>
+ </head>
+ <body class="bg-[#fff0f2] font-sans">
+   <!-- Navbar -->
+  <nav class="bg-[#2ecc71] flex flex-wrap items-center justify-between px-4 py-3">
+   <div class="flex flex-col">
+    <h1 class="text-black font-bold text-sm sm:text-base md:text-lg leading-tight">
+     HMPS ASURANSI SYARI'AH
+    </h1>
+    <p class="text-black text-[8px] sm:text-xs md:text-sm font-semibold leading-tight mt-0.5">
+     UIN SULTAN MAULANA HASANUDDIN BANTEN
+    </p>
+   </div>
+   <!-- Desktop nav links and Struktur dropdown -->
+   <ul class="hidden sm:flex items-center space-x-2 text-black text-xs sm:text-sm md:text-base font-semibold">
+    <li>
+     <a class="hover:underline" href="home.html">
+      HOME
+     </a>
+    </li>
+    <li>
+     <a class="hover:underline" href="about.html">
+      ABOUT
+     </a>
+    </li>
+    <li class="relative group">
+     <button aria-expanded="false" aria-haspopup="true" class="bg-white text-black font-bold rounded px-2 py-0.5 text-[10px] sm:text-xs md:text-sm flex items-center space-x-1 border border-black hover:bg-[#10b981] hover:text-white transition" id="strukturBtn" onclick="toggleDropdown()" type="button">
+      <span>
+       STRUKTUR
+      </span>
+      <i class="fas fa-caret-down text-xs">
+      </i>
+     </button>
+     <ul aria-label="Struktur submenu" class="absolute right-0 mt-1 w-28 bg-white border border-black rounded shadow-md text-black text-[10px] sm:text-xs md:text-sm font-semibold hidden z-50" id="strukturDropdown" role="menu">
+             <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Struktur.html">
+        Struktur
+       </a>
+      </li>
+      <li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="bph.html">
+        BADAN PENGURUS HARIAN
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Internal.html">
+        INTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekternal.html">
+        EKSTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Kominfo.html">
+        KOMINFO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="pao.html">
+        PAO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekraf.html">
+        EKRAF
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="PP.html">
+        PP
+       </a>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <a class="hover:underline" href="berita.html">
+      BERITA
+     </a>
+    </li>
+    <li>
+     <a class="hover:underline" href="kontak.html">
+      KONTAK
+     </a>
+    </li>
+   </ul>
+
+   <!-- Mobile menu button -->
+   <button aria-label="Toggle menu" class="sm:hidden text-black text-xl focus:outline-none" id="mobileMenuBtn" onclick="toggleMobileMenu()" type="button">
+    <i class="fas fa-bars">
+    </i>
+   </button>
+  </nav>
+  <!-- Mobile menu -->
+  <div class="hidden bg-[#2ecc71] px-4 pb-4 sm:hidden" id="mobileMenu">
+   <ul class="flex flex-col space-y-2 text-black text-sm font-semibold">
+    <li>
+
+    <li>
+     <a class="block py-1 hover:underline" href="home.html">
+      HOME
+     </a>
+    </li>
+    <li>
+     <a class="block py-1 hover:underline" href="about.html">
+      ABOUT
+     </a>
+    </li>
+    
+         <button aria-expanded="false" aria-haspopup="true" class="w-full text-left bg-white text-black font-bold rounded px-2 py-1 flex items-center justify-between border border-black hover:bg-[#10b981] hover:text-white transition" id="mobileStrukturBtn" onclick="toggleMobileDropdown()" type="button">
+      <span>
+       STRUKTUR
+      </span>
+      <i class="fas fa-caret-down">
+      </i>
+     </button>
+     <ul aria-label="Struktur submenu mobile" class="hidden mt-1 bg-white border border-black rounded shadow-md text-black font-semibold" id="mobileStrukturDropdown" role="menu">
+      <li>      <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Struktur.html">
+        Struktur
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="bph.html">
+        BADAN PENGURUS HARIAN
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Internal.html">
+        INTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekternal.html">
+        EKSTERNAL
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Kominfo.html">
+        KOMINFO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="pao.html">
+        PAO
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="Ekraf.html">
+        EKRAF
+       </a>
+      </li>
+      <li>
+       <a class="block px-3 py-1 hover:bg-[#10b981] hover:text-white" href="PP.html">
+        PP
+       </a>
+      </li>
+     </ul>
+    </li>
+    
+    <li>
+     <a class="block py-1 hover:underline" href="Berita.html">
+      BERITA
+     </a>
+    </li>
+    <li>
+     <a class="block py-1 hover:underline" href="Kontak.html">
+      KONTAK
+     </a>
+    </li>
+   </ul>
+  </div>
+
+
+  <!-- Main Content -->
+  <main class="container p-4">
+    <!-- Section Berita -->
+    <section id="berita">
+      <h2 class="section-title">Berita Terbaru</h2>
+      <div id="news-list" class="news-list"></div>
+    </section>
+
+    <!-- Form Tambah Berita -->
+    <section id="add-news" class="add-news-section">
+      <h3 class="section-subtitle">Tambah Berita Otomotif Baru</h3>
+      <form id="newsForm" class="news-form" autocomplete="off">
+        <div class="form-group">
+          <label for="title" class="form-label">Judul Berita</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            placeholder="Masukkan judul berita"
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="date" class="form-label">Tanggal Publikasi</label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            required
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="summary" class="form-label">Ringkasan Berita</label>
+          <textarea
+            id="summary"
+            name="summary"
+            rows="3"
+            required
+            placeholder="Masukkan ringkasan berita"
+            class="form-textarea"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="fullContent" class="form-label">Isi Lengkap Berita</label>
+          <textarea
+            id="fullContent"
+            name="fullContent"
+            rows="5"
+            required
+            placeholder="Masukkan isi lengkap berita"
+            class="form-textarea"
+          ></textarea>
+        </div>
+        <div class="form-group flex gap-4 flex-wrap">
+          <div class="flex-grow min-w-[250px]">
+            <label for="imageUrl" class="form-label">URL Gambar</label>
+            <input
+              type="url"
+              id="imageUrl"
+              name="imageUrl"
+              placeholder="Masukkan URL gambar (contoh: https://example.com/image.jpg)"
+              class="form-input"
+            />
+          </div>
+          <div class="flex-grow min-w-[250px]">
+            <label for="imageFile" class="form-label">Atau Upload Gambar</label>
+            <input
+              type="file"
+              id="imageFile"
+              name="imageFile"
+              accept="image/*"
+              class="form-input"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="alt" class="form-label">Deskripsi Gambar (alt text)</label>
+          <input
+            type="text"
+            id="alt"
+            name="alt"
+            required
+            placeholder="Masukkan deskripsi gambar"
+            class="form-input"
+          />
+        </div>
+        <button type="submit" class="btn-submit">Tambah Berita</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center text-sm text-white">
+      ©ikmalfzi_-.
+    </div>
+  </footer>
+
+  <script>
+    // Data awal berita otomotif
+    function toggleDropdown() {
+    const dropdown = document.getElementById("strukturDropdown");
+    const btn = document.getElementById("strukturBtn");
+    const isHidden = dropdown.classList.contains("hidden");
+    if (isHidden) {
+      dropdown.classList.remove("hidden");
+      btn.setAttribute("aria-expanded", "true");
+    } else {
+      dropdown.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  }
+  // Close dropdown if clicked outside
+  window.addEventListener("click", function (e) {
+    const dropdown = document.getElementById("strukturDropdown");
+    const btn = document.getElementById("strukturBtn");
+    if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Mobile menu toggle
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobileMenu");
+    const btn = document.getElementById("mobileMenuBtn");
+    if (menu.classList.contains("hidden")) {
+      menu.classList.remove("hidden");
+      btn.innerHTML = '<i class="fas fa-times"></i>';
+    } else {
+      menu.classList.add("hidden");
+      btn.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+  }
+
+  // Mobile Struktur submenu toggle
+  function toggleMobileDropdown() {
+    const dropdown = document.getElementById("mobileStrukturDropdown");
+    const btn = document.getElementById("mobileStrukturBtn");
+    if (dropdown.classList.contains("hidden")) {
+      dropdown.classList.remove("hidden");
+      btn.setAttribute("aria-expanded", "true");
+    } else {
+      dropdown.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  }
+    
+    let newsData = [
+      {
+        id: 1,
+        title: "",
+        date: "",
+        summary:
+          "",
+        fullContent:
+          "",
+        image:
+          "",
+        alt: "",
+      },
+
+    ];
+
+    // Fungsi format tanggal ke format Indonesia
+    function formatDate(dateStr) {
+      const months = [
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember",
+      ];
+      const d = new Date(dateStr);
+      const day = d.getDate();
+      const month = months[d.getMonth()];
+      const year = d.getFullYear();
+      return `${day} ${month} ${year}`;
+    }
+
+    // Membuat elemen kartu berita
+    function createNewsCard(news) {
+      const card = document.createElement("article");
+      card.className = "news-card";
+
+      card.innerHTML = `
+        <img src="${news.image}" alt="${news.alt}" class="news-image" />
+        <h3 class="news-title">${news.title}</h3>
+        <p class="news-date">Dipublikasikan pada ${formatDate(news.date)}</p>
+        <p class="news-summary">${news.summary}</p>
+        <button class="btn-read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
+      `;
+
+      card.querySelector(".btn-read-more").addEventListener("click", () => {
+        showFullArticle(news);
+      });
+
+      return card;
+    }
+
+    // Menampilkan modal isi lengkap berita
+    function showFullArticle(news) {
+      const modalOverlay = document.createElement("div");
+      modalOverlay.className = "modal-overlay";
+
+      const modalContent = document.createElement("div");
+      modalContent.className = "modal-content";
+
+      modalContent.innerHTML = `
+        <button aria-label="Close modal" class="modal-close">&times;</button>
+        <h2 class="modal-title">${news.title}</h2>
+        <p class="modal-date">Dipublikasikan pada ${formatDate(news.date)}</p>
+        <img src="${news.image}" alt="${news.alt}" class="modal-image" />
+        <p class="modal-text">${news.fullContent.replace(/\n/g, "<br>")}</p>
+      `;
+
+      modalContent.querySelector(".modal-close").addEventListener("click", () => {
+        document.body.removeChild(modalOverlay);
+      });
+
+      modalOverlay.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) {
+          document.body.removeChild(modalOverlay);
+        }
+      });
+
+      modalOverlay.appendChild(modalContent);
+      document.body.appendChild(modalOverlay);
+    }
+
+    // Render semua berita ke halaman
+    function renderNews() {
+      const newsList = document.getElementById("news-list");
+      newsList.innerHTML = "";
+      newsData
+        .slice()
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .forEach((news) => {
+          const card = createNewsCard(news);
+          newsList.appendChild(card);
+        });
+    }
+
+    // Tangani submit form tambah berita
+    document.getElementById("newsForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+      const title = form.title.value.trim();
+      const date = form.date.value;
+      const summary = form.summary.value.trim();
+      const fullContent = form.fullContent.value.trim();
+      const imageUrl = form.imageUrl.value.trim();
+      const imageFile = form.imageFile.files[0];
+      const alt = form.alt.value.trim();
+
+      if (!title || !date || !summary || !fullContent || !alt) {
+        alert("Mohon lengkapi semua field kecuali gambar.");
+        return;
+      }
+
+      function addNews(imageSrc) {
+        const newNews = {
+          id: newsData.length ? newsData[newsData.length - 1].id + 1 : 1,
+          title,
+          date,
+          summary,
+          fullContent,
+          image: imageSrc,
+          alt,
+        };
+        newsData.push(newNews);
+        renderNews();
+        form.reset();
+        alert("Berita berhasil ditambahkan!");
+        document.getElementById("berita").scrollIntoView({ behavior: "smooth" });
+      }
+
+      if (imageFile) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          addNews(event.target.result);
+        };
+        reader.onerror = function () {
+          alert("Gagal membaca file gambar.");
+        };
+        reader.readAsDataURL(imageFile);
+      } else if (imageUrl) {
+        addNews(imageUrl);
+      } else {
+        alert("Mohon masukkan URL gambar atau upload gambar.");
+      }
+    });
+
+    // Render berita awal saat halaman dimuat
+    renderNews();
+  </script>
+</body>
+</html>

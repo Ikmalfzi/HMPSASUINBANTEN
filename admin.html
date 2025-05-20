@@ -1,0 +1,265 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Panel - Kelola Berita</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji";
+      margin: 0;
+      background-color: #f3f4f6;
+    }
+    header {
+      background-color: #2563eb;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: 700;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+    }
+    form > * {
+      margin-bottom: 1rem;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    input[type="text"],
+    input[type="date"],
+    textarea,
+    input[type="url"],
+    input[type="file"] {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.375rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus,
+    input[type="date"]:focus,
+    textarea:focus,
+    input[type="url"]:focus,
+    input[type="file"]:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgb(37 99 235 / 0.3);
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-size: 1.125rem;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
+    .news-list {
+      margin-top: 2rem;
+    }
+    .news-item {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .news-info {
+      max-width: 75%;
+    }
+    .news-title {
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 0.25rem;
+    }
+    .news-date {
+      font-size: 0.875rem;
+      color: #6b7280;
+      user-select: none;
+    }
+    .btn-delete {
+      background-color: #ef4444;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      color: white;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .btn-delete:hover {
+      background-color: #b91c1c;
+    }
+    nav {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <header>Admin Panel - Kelola Berita</header>
+  <nav>
+    <a href="admin.html">Admin Panel</a>
+    <a href="berita.html" target="_blank" rel="noopener noreferrer">Halaman Berita</a>
+  </nav>
+  <main class="container">
+    <form id="newsForm" autocomplete="off">
+      <label for="title">Judul Berita</label>
+      <input type="text" id="title" name="title" required placeholder="Masukkan judul berita" />
+
+      <label for="date">Tanggal Publikasi</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="summary">Ringkasan Berita</label>
+      <textarea id="summary" name="summary" rows="3" required placeholder="Masukkan ringkasan berita"></textarea>
+
+      <label for="fullContent">Isi Lengkap Berita</label>
+      <textarea id="fullContent" name="fullContent" rows="5" required placeholder="Masukkan isi lengkap berita"></textarea>
+
+      <label for="imageUrl">URL Gambar</label>
+      <input type="url" id="imageUrl" name="imageUrl" placeholder="Masukkan URL gambar (contoh: https://example.com/image.jpg)" />
+
+      <label for="imageFile">Atau Upload Gambar</label>
+      <input type="file" id="imageFile" name="imageFile" accept="image/*" />
+
+      <button type="submit">Tambah Berita</button>
+    </form>
+
+    <section class="news-list" id="newsList">
+      <!-- Daftar berita akan muncul di sini -->
+    </section>
+  </main>
+
+  <script>
+    const newsList = document.getElementById("newsList");
+    const newsForm = document.getElementById("newsForm");
+
+    // Ambil data berita dari localStorage atau inisialisasi array kosong
+    let newsData = JSON.parse(localStorage.getItem("newsData")) || [];
+
+    // Simpan data berita ke localStorage
+    function saveNews() {
+      localStorage.setItem("newsData", JSON.stringify(newsData));
+    }
+
+    // Format tanggal ke format Indonesia
+    function formatDate(dateStr) {
+      const months = [
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+      ];
+      const d = new Date(dateStr);
+      const day = d.getDate();
+      const month = months[d.getMonth()];
+      const year = d.getFullYear();
+      return `${day} ${month} ${year}`;
+    }
+
+    // Render daftar berita
+    function renderNews() {
+      newsList.innerHTML = "";
+      newsData.sort((a,b) => new Date(b.date) - new Date(a.date));
+      newsData.forEach(news => {
+        const div = document.createElement("div");
+        div.className = "news-item";
+        div.innerHTML = `
+          <div class="news-info">
+            <div class="news-title">${news.title}</div>
+            <div class="news-date">Dipublikasikan pada ${formatDate(news.date)}</div>
+            <div class="news-summary">${news.summary}</div>
+          </div>
+          <button class="btn-delete" aria-label="Hapus berita ${news.title}">Hapus</button>
+        `;
+        const btnDelete = div.querySelector(".btn-delete");
+        btnDelete.addEventListener("click", () => {
+          if (confirm(`Yakin ingin menghapus berita "${news.title}"?`)) {
+            newsData = newsData.filter(n => n.id !== news.id);
+            saveNews();
+            renderNews();
+          }
+        });
+        newsList.appendChild(div);
+      });
+    }
+
+    // Tambah berita baru
+    newsForm.addEventListener("submit", e => {
+      e.preventDefault();
+
+      const title = newsForm.title.value.trim();
+      const date = newsForm.date.value;
+      const summary = newsForm.summary.value.trim();
+      const fullContent = newsForm.fullContent.value.trim();
+      const imageUrl = newsForm.imageUrl.value.trim();
+      const imageFile = newsForm.imageFile.files[0];
+
+      if (!title || !date || !summary || !fullContent) {
+        alert("Mohon lengkapi semua field.");
+        return;
+      }
+
+      function addNews(imageSrc) {
+        const newNews = {
+          id: newsData.length ? Math.max(...newsData.map(n => n.id)) + 1 : 1,
+          title,
+          date,
+          summary,
+          fullContent,
+          image: imageSrc || "https://placehold.co/600x300/png?text=No+Image",
+        };
+        newsData.push(newNews);
+        saveNews();
+        renderNews();
+        newsForm.reset();
+      }
+
+      if (imageFile) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          addNews(event.target.result);
+        };
+        reader.onerror = function() {
+          alert("Gagal membaca file gambar.");
+        };
+        reader.readAsDataURL(imageFile);
+      } else if (imageUrl) {
+        addNews(imageUrl);
+      } else {
+        addNews(null);
+      }
+    });
+
+    // Render berita saat halaman dimuat
+    renderNews();
+  </script>
+</body>
+</html>

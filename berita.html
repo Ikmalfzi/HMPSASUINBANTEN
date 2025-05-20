@@ -612,6 +612,129 @@
         document.body.removeChild(modalOverlay);
       });
 
+ 
+    // Simpan data like ke localStorage per berita id
+    function saveLikes(likes) {
+      localStorage.setItem("newsLikes", JSON.stringify(likes));
+    }
+
+    // Load likes dari localStorage
+    function loadLikes() {
+      return JSON.parse(localStorage.getItem("newsLikes")) || {};
+    }
+
+    // Simpan data share ke localStorage per berita id
+    function saveShares(shares) {
+      localStorage.setItem("newsShares", JSON.stringify(shares));
+    }
+
+    // Load shares dari localStorage
+    function loadShares() {
+      return JSON.parse(localStorage.getItem("newsShares")) || {};
+    }
+
+    // Render berita ke halaman dengan fitur like, share, dan baca selengkapnya
+    function renderNews() {
+      const container = document.getElementById("newsContainer");
+      container.innerHTML = "";
+      const newsData = loadNews();
+      const likes = loadLikes();
+      const shares = loadShares();
+      if(newsData.length === 0){
+        container.innerHTML = "<p class='text-center text-gray-500 text-lg select-none'>Belum ada berita.</p>";
+        return;
+      }
+      newsData.forEach(news => {
+        const article = document.createElement("article");
+        article.className = "card";
+        article.innerHTML = `
+          <h2 class="article-title">${news.title}</h2>
+          <p class="article-date">Dipublikasikan pada ${formatDate(news.date)}</p>
+          <img src="${news.image}" alt="${news.title}" class="article-image" />
+          <p class="article-summary">${news.summary}</p>
+          <div class="actions">
+            <button class="read-more-btn" aria-label="Baca selengkapnya berita ${news.title}">Baca Selengkapnya
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            <button class="like-btn ${likes[news.id] ? 'liked' : ''}" aria-label="Like berita ${news.title}">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="${likes[news.id] ? 'red' : 'none'}" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span class="count">${likes[news.id] || 0}</span>
+            </button>
+            <button class="share-btn" aria-label="Bagikan berita ${news.title}">Share
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 12v.01M12 12v.01M20 12v.01M12 20v.01M12 4v.01M16.24 7.76l.01.01M7.76 16.24l.01.01M16.24 16.24l.01.01M7.76 7.76l.01.01" />
+              </svg>
+              <span class="count">${shares[news.id] || 0}</span>
+            </button>
+          </div>
+        `;
+        const btnReadMore = article.querySelector(".read-more-btn");
+        btnReadMore.addEventListener("click", () => {
+          showFullArticle(news);
+        });
+        const btnLike = article.querySelector(".like-btn");
+        btnLike.addEventListener("click", () => {
+          if (likes[news.id]) {
+            likes[news.id] = likes[news.id] - 1;
+            if (likes[news.id] < 0) likes[news.id] = 0;
+          } else {
+            likes[news.id] = 1;
+          }
+          saveLikes(likes);
+          renderNews();
+        });
+        const btnShare = article.querySelector(".share-btn");
+        btnShare.addEventListener("click", () => {
+          shareNews(news);
+          shares[news.id] = (shares[news.id] || 0) + 1;
+          saveShares(shares);
+          renderNews();
+        });
+        container.appendChild(article);
+      });
+    }
+
+    // Menampilkan modal isi lengkap berita dengan foto dan responsif, plus like & share
+    function showFullArticle(news) {
+      const likes = loadLikes();
+      const shares = loadShares();
+
+      const modalOverlay = document.createElement("div");
+      modalOverlay.className = "modal-overlay";
+
+      const modalContent = document.createElement("div");
+      modalContent.className = "modal-content";
+
+      modalContent.innerHTML = `
+        <button aria-label="Tutup modal" class="modal-close">&times;</button>
+        <h2 class="modal-title">${news.title}</h2>
+        <p class="modal-date">Dipublikasikan pada ${formatDate(news.date)}</p>
+        <img src="${news.image}" alt="${news.title}" class="modal-image" />
+        <p class="modal-text">${news.fullContent || news.summary}</p>
+        <div class="modal-actions">
+          <button class="like-btn ${likes[news.id] ? 'liked' : ''}" aria-label="Like berita ${news.title}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="${likes[news.id] ? 'red' : 'none'}" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="count">${likes[news.id] || 0}</span>
+          </button>
+          <button class="share-btn" aria-label="Bagikan berita ${news.title}">Share
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 12v.01M12 12v.01M20 12v.01M12 20v.01M12 4v.01M16.24 7.76l.01.01M7.76 16.24l.01.01M16.24 16.24l.01.01M7.76 7.76l.01.01" />
+            </svg>
+            <span class="count">${shares[news.id] || 0}</span>
+          </button>
+        </div>
+      `;
+
+      modalContent.querySelector(".modal-close").addEventListener("click", () => {
+        document.body.removeChild(modalOverlay);
+      });
+
       // Like button in modal
       modalContent.querySelector(".like-btn").addEventListener("click", () => {
         if (likes[news.id]) {
@@ -651,7 +774,7 @@
       const shareData = {
         title: news.title,
         text: news.summary,
-        url: window.location.href
+        url: window.location.href + "?newsId=" + news.id
       };
       if (navigator.share) {
         navigator.share(shareData).catch(() => {
@@ -664,6 +787,18 @@
         }, () => {
           alert("Browser Anda tidak mendukung fitur share.");
         });
+      }
+    }
+
+    // Jika ada query param newsId, buka modal langsung
+    function openNewsFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const newsId = params.get("newsId");
+      if (!newsId) return;
+      const newsData = loadNews();
+      const news = newsData.find(n => n.id === Number(newsId));
+      if (news) {
+        showFullArticle(news);
       }
     }
 
